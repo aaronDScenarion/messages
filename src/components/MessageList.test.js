@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
-import logo from './Schema_Logo.1bc49eb0e7da4c11a1fce974a38197f2.png';
-import './App.css';
-import MessageList from './components/MessageList.js'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { shallow, mount } from 'enzyme';
+import MessageList from './MessageList.js'
+import MessageRow from './MessageRow.js'
 
 const MESSAGEDATA = {
   "count": 7,
@@ -41,33 +42,23 @@ const MESSAGEDATA = {
   ]
 } 
 
-class App extends Component {
- 
-  constructor( props ) {
-    super( props )
-    this.state = {
-      messageData: MESSAGEDATA
-    }
-  }
+it('renders messages when messages are available', () => {
+
+	const wrapper = shallow(
+		<MessageList messageData={ MESSAGEDATA } />);
+
+	const MESSAGE_ROWS = 5
+
+	expect(wrapper.find(MessageRow).length).toEqual(MESSAGE_ROWS);
+})
 
 
+it('renders no products when a MessageList is not made', () => {
 
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to Schema Messages</h2>
-        </div>
-        <p className="App-intro">
-          Click a message to view details.
-        </p>
-        <div>
-          <MessageList messageData={ this.state.messageData } />
-        </div>
-      </div>
-    );
-  }
-}
+	const wrapper = shallow(
+		<MessageList messageData={ null } />);
 
-export default App;
+	const MESSAGE_ROWS = 0
+	expect(wrapper.find(MessageRow).length).toEqual(MESSAGE_ROWS);
+
+})
