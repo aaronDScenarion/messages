@@ -15,7 +15,7 @@ class MessageDetail extends Component {
 			        ID
 			      </Col>
 			      <Col sm={10}>
-			        <FormControl defaultValue={this.props.messageDetails.id} readOnly />
+			        <FormControl value={this.props.messageDetails.id} readOnly />
 			      </Col>
 			    </FormGroup>
 
@@ -24,7 +24,7 @@ class MessageDetail extends Component {
 			        Text
 			      </Col>
 			      <Col sm={10}>
-			        <FormControl defaultValue={this.props.messageDetails.text} readOnly />
+			        <FormControl value={this.props.messageDetails.text} readOnly />
 			      </Col>
 			    </FormGroup>
 
@@ -33,7 +33,7 @@ class MessageDetail extends Component {
 			       	Author
 			      </Col>
 			      <Col sm={10}>
-			        <FormControl defaultValue={this.props.messageDetails.author} readOnly />
+			        <FormControl value={this.props.messageDetails.author} readOnly />
 			      </Col>
 			    </FormGroup>
 
@@ -42,7 +42,7 @@ class MessageDetail extends Component {
 			       	In Reply To
 			      </Col>
 			      <Col sm={10}>
-			        <FormControl defaultValue={this.props.messageDetails.in_reply_to} readOnly />
+			        <FormControl value={this.props.messageDetails.in_reply_to} readOnly />
 			      </Col>
 			    </FormGroup>
 
@@ -51,7 +51,7 @@ class MessageDetail extends Component {
 			       	UTC Offset
 			      </Col>
 			      <Col sm={10}>
-			        <FormControl defaultValue={this.props.messageDetails.utc_offset} readOnly />
+			        <FormControl value={this.props.messageDetails.utc_offset} readOnly />
 			      </Col>
 			    </FormGroup>
 
@@ -60,7 +60,7 @@ class MessageDetail extends Component {
 			        Craeted At
 			      </Col>
 			      <Col sm={10}>
-			        <FormControl defaultValue={this.props.messageDetails.created_at} readOnly />
+			        <FormControl value={this.props.messageDetails.created_at} readOnly />
 			      </Col>
 			    </FormGroup>
 
@@ -69,7 +69,7 @@ class MessageDetail extends Component {
 			       	Upadated At
 			      </Col>
 			      <Col sm={10}>
-			        <FormControl defaultValue={this.props.messageDetails.updated_at} readOnly />
+			        <FormControl value={this.props.messageDetails.updated_at} readOnly />
 			      </Col>
 			    </FormGroup>
 
