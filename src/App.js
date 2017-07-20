@@ -4,26 +4,41 @@ import './App.css';
 import MessageList from './components/MessageList.js'
 import fetchJSON from './components/fetchJSON.js'
 import ButtonBar from './components/ButtonBar.js'
+import MessageDetail from './components/MessageDetail.js'
 
 class App extends Component {
  
   constructor( props ) {
     super( props )
     this.state = {
-      messageData: {}
+      messageData: {},
+      messageDetails: {}
     }
     this.getMessages = this.getMessages.bind(this)
+    this.getMessageDetail = this.getMessageDetail.bind(this)
   }
 
-  getMessages( next ) {
+  getMessages( url ) {
 
-      fetchJSON( next )
+      fetchJSON( url )
         .then( messageData => {
           this.setState ({ messageData })         
         })
 
         .catch( err => console.log( 'ERROR: ' + err ))    
   }
+
+  getMessageDetail( url ) {
+
+      fetchJSON( url )
+        .then( messageDetails => {
+          this.setState ({ messageDetails })         
+        })
+
+        .catch( err => console.log( 'ERROR: ' + err ))    
+  }
+
+
 
   render() {
     return (
@@ -41,7 +56,12 @@ class App extends Component {
         <div>
           <MessageList 
             messageData={ this.state.messageData } 
-            getMessages={ this.getMessages } />
+            getMessages={ this.getMessages } 
+            getMessageDetail={ this.getMessageDetail }/>
+        </div>
+        <div>
+          <MessageDetail
+             messageDetails= { this.state.messageDetails }/>
         </div>
       </div>
     );

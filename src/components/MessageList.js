@@ -13,7 +13,9 @@ class MessageList extends Component {
 				rows.push(
 					<MessageRow
 						text={ message.text }
-						datePosted={ message.created_at } 
+						datePosted={ message.created_at }
+						url={ message.url }
+						getMessageDetail={ this.props.getMessageDetail }
 						key={ message.id } />)
 			})
 
@@ -23,11 +25,11 @@ class MessageList extends Component {
 	        <Button 
 	        	bsStyle="primary"
 	        	disabled={!this.props.messageData.next}
-	        	onClick={() => this.props.getMessages(this.props.messageData.next)}>Next Messages
+	        	onClick={ () => this.props.getMessages( this.props.messageData.next ) }>Next Messages
 	        </Button>
 	        <Button bsStyle="primary"
-	        	disabled={!this.props.messageData.previous}
-	        	onClick={() => this.props.getMessages(this.props.messageData.previous)}>Previous Message
+	        	disabled={ !this.props.messageData.previous }
+	        	onClick={ () => this.props.getMessages( this.props.messageData.previous )}>Previous Message
 	        </Button>
 	      </ButtonToolbar>
 	      <Table striped bordered condensed hover>
@@ -37,7 +39,7 @@ class MessageList extends Component {
 	            <th>Date Posted</th>
 	          </tr>
 	        </thead>
-	        <tbody>{rows}</tbody>
+	        <tbody>{ rows }</tbody>
 	      </Table>		
 	      </div>	
 			)

@@ -16,13 +16,8 @@
 
 .Message-table {
   margin-top: 50px;
-/*  color: #222;
-  background-color: #5cb85c
-*/}
-
-/*.Message-row {
-  color: white;
-  background-color: #222
 }
 
-*/
+tr {
+  cursor: pointer;
+}
